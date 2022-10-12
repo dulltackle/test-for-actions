@@ -1,0 +1,15 @@
+name: Auto Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  auto-release:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh release create $TAG --generate-notes
+        env:
+          TAG: ${{ github.action_ref }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
