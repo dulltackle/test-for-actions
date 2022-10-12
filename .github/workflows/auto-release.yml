@@ -9,7 +9,6 @@ jobs:
   auto-release:
     runs-on: ubuntu-latest
     steps:
-      - run: gh release create $TAG --generate-notes
+      - run: gh release create $GITHUB_REF_NAME --generate-notes
         env:
-          TAG: ${{ github.action_ref }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
