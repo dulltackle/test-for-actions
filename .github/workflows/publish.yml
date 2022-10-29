@@ -1,7 +1,9 @@
 name: Publish To NPM
 
 on:
-  release
+  push:
+    tags:
+      - "v*"
 
 jobs:
   trigger-by-release:
